@@ -1,0 +1,54 @@
+.container {
+  padding: 16px;
+}
+
+.titulo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.botoesEstados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.botaoEstado {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #d1d5db; /* bg-gray-300 */
+  color: black;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.botaoEstado:hover {
+  background-color: #c0c0c0;
+}
+
+.selecionado {
+  background-color: black;
+  color: white;
+}
+
+.subtitulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.listaConcursos {
+  list-style-type: disc;
+  padding-left: 24px;
+}
+
+.listaConcursos li {
+  margin-bottom: 6px;
+}
