@@ -21,7 +21,7 @@ const Login = () => {
 
       alert("Login Ok");
 
-      //  CONFIGURAR APOS CRIAÇÃO DA TELA DE PREFERENCIAS
+      
       navigate("/");
     } catch (error) {
       alert("Dados Incorretos.");
@@ -29,27 +29,42 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
+    <div className= {styles.loginPage}>
+      <div>
+      
+      <h2 className= {styles.title}>Login</h2>
+      
+      <form onSubmit={handleSubmit} className={styles.form}>
+        
+          
+          <input
           ref={emailRef}
           type="email"
           placeholder="email"
-        />
+          className={styles.input}
+      />
         <input
           ref={passwordRef}
           type="password"
           placeholder="senha"
+          className={styles.input}
         />
-        <button>
+        <div className={styles.forgot}>
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+           
+      
+        <button type="submit" className={styles.loginbtn}>
           Logar
         </button>
       </form>
-      <div>
-        <Link to="/">
-          Não tem conta, faça cadastro!
-        </Link>
+      <p className={styles.registerText}>
+          Não tem conta , faça cadastro! <Link to="/">Registrar</Link>
+        </p>
+      <div className="">
+
+
+      </div>
       </div>
     </div>
   );

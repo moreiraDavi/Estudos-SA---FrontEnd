@@ -5,7 +5,7 @@ import styles from "./FiltroConcursos.module.css";
 const estados = [
   "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
   "MT", "MS", "MG", "PA", "PB", "PE", "PI", "PR", "RJ", "RN",
-  "RS", "RO", "RR", "SC", "SP", "SE", "TO"
+  "RS", "RO", "RR", "SC", "SP", "SE", "TO", "NACIONAL"
 ];
 
 function FiltroConcursos() {
@@ -54,7 +54,12 @@ function FiltroConcursos() {
       <ul className={styles.listaConcursos}>
         {concursos.map((c) => (
           <li key={c.id}>
-            <strong>{c.name}</strong> — {c.estado} — Prova: {c.dataProva}
+            <strong>Concurso: {c.name}</strong>
+            <p>Banca: {c.banca}</p>
+            <p>Estado: {c.estado}</p>
+            <p>Data da Prova: {c.dataProva}</p>
+            <p>Salario: {c.salario}</p>
+            <p>Número de vagas: {c.numVagas}</p>
           </li>
         ))}
       </ul>

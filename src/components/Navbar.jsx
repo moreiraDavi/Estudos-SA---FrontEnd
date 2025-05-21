@@ -7,8 +7,8 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.brand}>
-        <span className={styles.estudos}>ng</span>
-        <span className={styles.sa}>Blog</span>
+        <span className={styles.estudos}>Estudos</span>
+        <span className={styles.sa}>S.A.</span>
       </Link>
       <ul className={styles.links_list}>
         <li>

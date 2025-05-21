@@ -1,0 +1,89 @@
+.loginPage {
+  max-width: 400px;
+  margin: 150px auto;
+  background: #fff;
+  padding: 32px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(47, 128, 237, 0.25), 0 4px 24px 0 rgba(0,0,0,0.18);
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #2F80ED;
+}
+
+
+
+.loginform h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2F80ED;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%; 
+}
+
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #d3d3d3;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 0; /* remove margem externa */
+}
+
+
+.forgot {
+  text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.forgot a {
+  font-size: 0.9rem;
+  color: #287be8;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+.loginbtn {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.loginbtn:hover {
+  background-color: #1e62b5;
+}
+
+.registerText {
+  text-align: center;
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+
+.link{
+color: #2563eb;
+text-decoration:underline;
+cursor:pointer;
+}

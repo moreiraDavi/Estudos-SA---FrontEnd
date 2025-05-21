@@ -24,33 +24,33 @@ const Cadastro = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
-      <h2 className="2xl font-bold mb-6 text-center text-gray-800">Cadastro</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-7">
+    <div className={styles.container}>
+      <h2 className={styles.title}>Cadastro</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           ref={nameRef}
           type="text"
           placeholder="nome"
-          className="w-full px-3 py-2 border border-gray-500 rounded-md focus:outline-none"
+          className={styles.input}
         />
         <input
           ref={emailRef}
           type="email"
           placeholder="email"
-          className="w-full px-3 py-2 border border-gray-500 rounded-md focus:outline-none"
+          className={styles.input}
         />
         <input
           ref={passwordRef}
           type="password"
           placeholder="senha"
-          className="w-full px-3 py-2 border border-gray-500 rounded-md focus:outline-none"
+          className={styles.input}
         />
-        <button className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400">
+        <button className={styles.button}>
           Cadastrar
         </button>
       </form>
-      <div className="text-center mt-7">
-        <Link to="/login" className="text-blue-700 hover:underline">
+      <div style={{ textAlign: "center", marginTop: "28px"}}>
+        <Link to="/login" className={styles.link}>
           Ir para Login
         </Link>
       </div>
