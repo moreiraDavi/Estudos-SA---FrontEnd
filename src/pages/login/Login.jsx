@@ -2,8 +2,14 @@ import { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import styles from './Login.module.css'
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+
 
 const Login = () => {
+
+  const { login } = useContext(AuthContext);
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
@@ -17,7 +23,7 @@ const Login = () => {
         password: passwordRef.current.value,
       });
 
-      localStorage.setItem("token", token);
+      login(token);
 
       alert("Login Ok");
 
@@ -48,23 +54,15 @@ const Login = () => {
           type="password"
           placeholder="senha"
           className={styles.input}
-        />
-        <div className={styles.forgot}>
-            <a href="#">Esqueceu a senha?</a>
-          </div>
-           
+        /> 
       
         <button type="submit" className={styles.loginbtn}>
           Logar
         </button>
       </form>
       <p className={styles.registerText}>
-          Não tem conta , faça cadastro! <Link to="/">Registrar</Link>
+          Não tem conta , faça cadastro! <Link to="/register">Registrar</Link>
         </p>
-      <div className="">
-
-
-      </div>
       </div>
     </div>
   );

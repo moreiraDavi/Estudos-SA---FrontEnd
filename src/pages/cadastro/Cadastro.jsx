@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import api from "../../services/api";
-import styles from './Cadastro.module.css'
+import styles from "./Cadastro.module.css";
 
 const Cadastro = () => {
   const nameRef = useRef();
@@ -45,14 +45,19 @@ const Cadastro = () => {
           placeholder="senha"
           className={styles.input}
         />
-        <button className={styles.button}>
-          Cadastrar
-        </button>
+        <button className={styles.button}>Cadastrar</button>
       </form>
-      <div style={{ textAlign: "center", marginTop: "28px"}}>
-        <Link to="/login" className={styles.link}>
-          Ir para Login
-        </Link>
+      <div
+        style={{
+          marginTop: "28px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "10px",
+        }}
+      >
+        <p>Já tem uma conta?</p>
+        <Link to="/login">Login</Link>
       </div>
     </div>
   );

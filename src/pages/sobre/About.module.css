@@ -1,66 +1,77 @@
 .aboutcontainer {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    margin: 0 auto;
-    margin-top: 30px;
-    width: 900px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 900px;
 }
 
 .aboutcontainer h1 {
-    font-size: 2.7rem;
-    margin-bottom: 0;
-    font-weight: 600;
+  font-size: 2.7rem;
+  margin-bottom: 0;
+  font-weight: 600;
 }
 
 .aboutcontainer p {
-    color: rgb(0, 0, 255);
-    width: 550px;
-    margin: 0 auto;
-    margin-top: 20px;
-    font-size: 1.1rem;
+  color: rgb(0, 0, 255);
+  width: 550px;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 1.1rem;
 }
 
 .listarecursos {
-    display: flex;
-    justify-content: space-evenly;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-top: 70px;
-    margin-bottom: 125px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 70px;
+  margin-bottom: 125px;
 }
 
 .recurso {
-    background-color: #dbdbdb; /* Cor de fundo clara */
-    width: 300px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 20px;
-    border-radius: 32px; /* Bordas arredondadas */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
-    gap: 20px;
-    font-family: sans-serif;
-  }
-  
-  .recurso h2 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #1a1a1a;
-    height: 50px;
-    padding: 10px;
-  }
-  
-  .recurso p {
-    font-size: 1.1rem;
-    color: #717171;
-    margin: 0;
-  }
-  
+  background-color: #dbdbdb; /* Cor de fundo clara */
+  width: 300px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px;
+  border-radius: 32px; /* Bordas arredondadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  gap: 20px;
+  font-family: sans-serif;
+  transition: transform 0.25s cubic-bezier(0.4, 2, 0.6, 1), box-shadow 0.25s;
+}
+
+.recurso h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #1a1a1a;
+  height: 50px;
+  padding: 10px;
+}
+
+.recurso p {
+  font-size: 1.1rem;
+  color: #717171;
+  margin: 0;
+}
+
+.recurso:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(69, 142, 238, 0.18);
+  background-color: #458eee;
+}
+
+.recurso:hover p,.recurso:hover h2 {
+    color: white!important;
+
+}
