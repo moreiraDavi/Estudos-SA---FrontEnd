@@ -14,6 +14,10 @@
     text-decoration: none;
     color: black;
   }
+
+  .brand img {
+    border-radius: 15px;
+  }
   
   .brand .blog {
     font-weight: 600;
