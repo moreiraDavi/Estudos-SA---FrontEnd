@@ -34,8 +34,8 @@ function FiltroConcursos() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.titulo}>Filtro por Estado</h2>
-
+      <h1 className={styles.titulo1}>Lista de Concursos Ativos</h1>
+      <p className={styles.subtitulo1}>Utilize nosso filtro de estados para visualizar concursos ativos no seu estado.</p>
       <div className={styles.botoesEstados}>
         {estados.map((uf) => (
           <button

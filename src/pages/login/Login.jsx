@@ -57,7 +57,7 @@ const Login = () => {
         /> 
       
         <button type="submit" className={styles.loginbtn}>
-          Logar
+          Entrar
         </button>
       </form>
       <p className={styles.registerText}>

@@ -44,7 +44,7 @@ const About = () => {
           <h2>Priorização de disciplinas</h2>
           <p>
             Nosso algoritmo prioriza as disciplinas mais importantes para seu
-            exame específico
+            exame específico.
           </p>
         </div>
         <div className={styles.recurso}>

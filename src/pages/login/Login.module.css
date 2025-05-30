@@ -2,7 +2,7 @@
   max-width: 400px;
   margin: 150px auto;
   background: #fff;
-  padding: 32px;
+  padding: 50px;
   border: 1px solid #ccc;
   border-radius: 12px;
   box-shadow: 0 8px 32px 0 rgba(47, 128, 237, 0.25), 0 4px 24px 0 rgba(0,0,0,0.18);
@@ -13,7 +13,7 @@
   font-weight: bold;
   margin-bottom: 24px;
   text-align: center;
-  color: #2F80ED;
+  color: #033b85;
 }
 
 
@@ -60,7 +60,7 @@
 }
 
 .loginbtn {
-  background-color: #2563eb;
+  background-color: rgba(1,141,254,255);
   color: #fff;
   padding: 10px 0;
   font-size: 1rem;
@@ -68,6 +68,11 @@
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  font-weight: bold;
 }
 
 .loginbtn:hover {
