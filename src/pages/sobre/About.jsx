@@ -2,7 +2,7 @@ import styles from "./About.module.css";
 
 const About = () => {
   return (
-    <div>
+    <div className={styles.aboutPage}>
       <div className={styles.aboutcontainer}>
         <h1>Recursos inteligentes para o estudo eficaz</h1>
         <p>

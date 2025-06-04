@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 import styles from "./Preferencias.module.css";
+import { useNavigate } from "react-router-dom";
 
 const diasSemana = [
   "Segunda",
@@ -19,42 +20,22 @@ const turnos = [
   { id: "madrugada", label: "Madrugada (00:00-3:00)" },
 ];
 
-const duracoes = [
-  "1 semana",
-  "2 semanas",
-  "3 semanas",
-  "4 semanas",
-  "5 semanas",
-];
+const duracoes = ["1", "2", "3", "4", "5"];
 
 const Preferencias = () => {
+  const navigate = useNavigate();
   const [options, setOptions] = useState([]);
-
   const [selectedConcurso, setSelectedConcurso] = useState("");
-  const [selectedDias, setSelectedDias] = useState("");
+  const [selectedDias, setSelectedDias] = useState([]);
   const [selectedTurno, setSelectedTurno] = useState("");
   const [selectedDuracao, setSelectedDuracao] = useState("");
-
-  const [showTurnos, setShowTurnos] = useState(false);
-  const [showDuracao, setShowDuracao] = useState(false);
-
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchOptions = async () => {
-      try {
-        setLoading(true);
-
-        const response = await api.get("/concursos/getOptions");
-        setOptions(response.data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchOptions();
+    api
+      .get("/concursos/getOptions")
+      .then((res) => setOptions(res.data))
+      .catch(console.error);
   }, []);
 
   const toggleDia = (dia) => {
@@ -63,7 +44,7 @@ const Preferencias = () => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (
@@ -77,45 +58,67 @@ const Preferencias = () => {
     }
 
     const preferences = {
-      concurso: selectedConcurso,
-      dia: selectedDias,
+      concursoId: selectedConcurso,
+      diasEstudo: selectedDias.length,
       turno: selectedTurno,
       duracao: selectedDuracao,
     };
 
-    console.log(preferences);
+    setLoading(true);
+    try {
+      await api.post("/preferencias/create-com-rotina", preferences);
+      navigate("/rotinas");
+    } catch (err) {
+      console.log(err);
+      alert(err.response?.data?.message || "Erro ao gerar rotina.");
+    } finally {
+      setLoading(false);
+    }
   };
-
-  if (loading) return <div>Carregando...</div>;
-
-  if (error) return <div>Erro: {error}</div>;
 
   return (
     <div className={styles.pagina}>
       <div className={styles.container}>
+        {/* Botão de voltar restaura o original */}
+        <button
+          type="button"
+          className={styles.voltar}
+          onClick={() => navigate("/rotinas")}
+          disabled={loading}
+        >
+          ←
+        </button>
+
         <div className={styles.header}>
           <h1 className={styles.titulo}>Crie sua Rotina</h1>
           <p className={styles.descricao}>
             Personalize sua rotina conforme suas preferências
           </p>
         </div>
+
         <form onSubmit={handleSubmit}>
+          {loading && (
+            <div className={styles.loadingOverlay}>
+              <p>Gerando rotinas, por favor aguarde…</p>
+            </div>
+          )}
+
           <div>
             <label>Selecione o concurso que deseja: </label>
             <select
-              id="select-opcoes"
               value={selectedConcurso}
               onChange={(e) => setSelectedConcurso(e.target.value)}
-              disabled={loading || error}
+              disabled={loading}
             >
               <option value="">Selecione...</option>
-              {options.map((option) => (
-                <option key={option.id} value={option.id}>
-                  {option.name}
+              {options.map((opt) => (
+                <option key={opt.id} value={opt.id}>
+                  {opt.name}
                 </option>
               ))}
             </select>
           </div>
+
           <div>
             <label>Selecione os dias de estudo: </label>
             <div className={styles.checkboxGroup}>
@@ -125,17 +128,20 @@ const Preferencias = () => {
                     type="checkbox"
                     checked={selectedDias.includes(dia)}
                     onChange={() => toggleDia(dia)}
+                    disabled={loading}
                   />
                   {dia}
                 </label>
               ))}
             </div>
           </div>
+
           <div>
             <label>Selecione o turno: </label>
             <select
               value={selectedTurno}
               onChange={(e) => setSelectedTurno(e.target.value)}
+              disabled={loading}
             >
               <option value="">Selecione um turno</option>
               {turnos.map((t) => (
@@ -145,20 +151,30 @@ const Preferencias = () => {
               ))}
             </select>
           </div>
+
           <div>
-            <label> Duração da rotina: </label>
+            <label>Duração da rotina: </label>
             <select
               value={selectedDuracao}
               onChange={(e) => setSelectedDuracao(e.target.value)}
+              disabled={loading}
             >
+              <option value="">Selecione…</option>
               {duracoes.map((d) => (
                 <option key={d} value={d}>
-                  {d}
+                  {d} {d === "1" ? "semana" : "semanas"}
                 </option>
               ))}
             </select>
           </div>
-          <button type="submit">Criar</button>
+
+          <button
+            type="submit"
+            disabled={loading}
+            className={styles.submitBtn}
+          >
+            {loading ? "Carregando…" : "Criar"}
+          </button>
         </form>
       </div>
     </div>
