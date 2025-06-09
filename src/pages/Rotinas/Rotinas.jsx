@@ -16,7 +16,16 @@ export default function Rotinas() {
         const { data } = await api.get("/preferencias/getPreferencias");
         setPreferencias(data.preferencias || []);
       } catch (err) {
-        console.error("Erro ao buscar preferências:", err);
+        if (err.response) {
+          console.error(
+            "Erro ao buscar preferências:",
+            err.response.status,
+            err.response.data
+          );
+        } else {
+          console.error("Erro (sem response):", err.message);
+        }
+        setPreferencias(null);
       } finally {
         setLoading(false);
       }
@@ -47,13 +56,13 @@ export default function Rotinas() {
 
       <div className={styles.rotinas}>
         {loading ? (
-          <div className={styles.noRotina}>
-            <p>Carregando preferências…</p>
-          </div>
+          <p>Carregando…</p>
+        ) : preferencias === null ? (
+          <p className={styles.error}>
+            Não foi possível carregar suas preferências
+          </p>
         ) : preferencias.length === 0 ? (
-          <div className={styles.noRotina}>
-            <p>Você ainda não tem rotinas cadastradas.</p>
-          </div>
+          <p>Você ainda não tem rotinas cadastradas.</p>
         ) : (
           <ul>
             {preferencias.map((pref, idx) => (
@@ -80,6 +89,9 @@ export default function Rotinas() {
                   <strong>Duração:</strong> {pref.duracao}{" "}
                   {pref.duracao === "1" ? "semana" : "semanas"}
                 </p>
+                <button onClick={() => navigate(`/rotina/${pref.concursoId}`)}>
+                  Ver Rotina
+                </button>
               </motion.li>
             ))}
           </ul>

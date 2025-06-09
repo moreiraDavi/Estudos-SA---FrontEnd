@@ -15,6 +15,7 @@ import About from "./pages/sobre/About";
 import Home from "./pages/home/Home";
 import Rotinas from "./pages/Rotinas/Rotinas";
 import Preferencias from "./pages/preferencias/Preferencias";
+import Rotina from "./pages/Rotina/Rotina";
 
 function App() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -42,6 +43,10 @@ function App() {
           <Route
             path="/rotinas/create"
             element={isLoggedIn ? <Preferencias /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/rotina/:concursoId"
+            element={isLoggedIn ? <Rotina /> : <Navigate to="/login" />}
           />
         </Routes>
       </div>
