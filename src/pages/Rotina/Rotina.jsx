@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../../services/api";
+import styles from "./Rotina.module.css";
+
+const diasSemana = [
+  "Segunda",
+  "Terça",
+  "Quarta",
+  "Quinta",
+  "Sexta",
+  "Sábado",
+  "Domingo",
+];
 
 export default function Rotina() {
   const { concursoId } = useParams();
@@ -14,7 +25,7 @@ export default function Rotina() {
       try {
         const { data } = await api.get(`/rotinas?concursoId=${concursoId}`);
         setRotinas(data.rotinas);
-        setIndiceAtual(0); // Sempre começa na primeira rotina
+        setIndiceAtual(0);
       } catch (err) {
         setRotinas([]);
       } finally {
@@ -32,35 +43,54 @@ export default function Rotina() {
 
   return (
     <div>
-      <h1>
-        Rotina {indiceAtual + 1} de {rotinas.length}
-      </h1>
-      <div>
-        <strong>{rotina.nome || rotina.conteudo1}</strong>
-        {/* Exemplo: mostrar 7 conteúdos e horários */}
-        <ul>
-          {[1, 2, 3, 4, 5, 6, 7].map((dia, idx) => (
-            <li key={idx}>
-              Conteúdo: {rotina[`conteudo${dia}`] || "-"}
-              <br />
-              Horário: {rotina[`horario${dia}`] || "-"}
-            </li>
-          ))}
-        </ul>
+      <div className={styles.titulo}>
+        <div className={styles.botoes}>
+          <button
+            onClick={() => setIndiceAtual((i) => i - 1)}
+            disabled={indiceAtual === 0}
+            className={styles.btn}
+          >
+            ←
+          </button>
+          <div className={styles.tituloRotina}>
+            <h1>
+              Rotina {indiceAtual + 1} de {rotinas.length}
+            </h1>
+          </div>
+          <button
+            onClick={() => setIndiceAtual((i) => i + 1)}
+            disabled={indiceAtual === rotinas.length - 1}
+            className={styles.btn}
+          >
+            →
+          </button>
+        </div>
       </div>
-      <div style={{ display: "flex", gap: 16, marginTop: 16 }}>
-        <button
-          onClick={() => setIndiceAtual((i) => i - 1)}
-          disabled={indiceAtual === 0}
-        >
-          ← Anterior
-        </button>
-        <button
-          onClick={() => setIndiceAtual((i) => i + 1)}
-          disabled={indiceAtual === rotinas.length - 1}
-        >
-          Próxima →
-        </button>
+      <ul className={styles.diasSemana}>
+        {diasSemana.map((dia) => (
+          <li key={dia} style={{ fontWeight: "bold", fontSize: "1.2em" }}>
+            {dia}
+          </li>
+        ))}
+      </ul>
+      <div className={styles.listaDia}>
+        {diasSemana.map((dia, idx) => (
+          <ul
+            key={dia}
+            className={
+              idx === 6
+                ? `${styles.listaRotina} ${styles.ultimoDia}` // aplica classe extra se for o último
+                : styles.listaRotina
+            }
+          >
+            <li>
+              <p>{rotina[`conteudo${idx + 1}`] || "-"}</p>
+            </li>
+            <li>
+              <p>11:50 - 16:00</p>
+            </li>
+          </ul>
+        ))}
       </div>
     </div>
   );

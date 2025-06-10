@@ -54,9 +54,10 @@ function FiltroConcursos() {
       <ul className={styles.listaConcursos}>
         {concursos.map((c) => (
           <li key={c.id}>
-            <strong>Concurso: {c.name}</strong>
+            <strong> {c.name}</strong>
             <p>Banca: {c.banca}</p>
             <p>Estado: {c.estado}</p>
+            <p>Data final das inscrições: {c.dataInscricaoFim}</p>
             <p>Data da Prova: {c.dataProva}</p>
             <p>Salario: {c.salario}</p>
             <p>Número de vagas: {c.numVagas}</p>

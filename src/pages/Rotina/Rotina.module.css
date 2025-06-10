@@ -1,0 +1,91 @@
+:root {
+  --col-width: 260px; /* 120px de conteúdo + 2×70px de padding, ajuste se quiser */
+}
+
+.titulo {
+  display: flex;
+  flex-direction: row;
+  margin-left: 80px;
+  transform: scale(1.2); /* aumenta a escala em 20% */
+  transform-origin: left center;
+  max-height: 200px;
+  margin-bottom: 80px;
+}
+
+.listaDia {
+  display: grid;
+  grid-template-columns: repeat(7, var(--col-width));
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background: #f8f9fa;
+  margin-left: 25px;
+  margin-right: 25px;
+  /* remova o antigo display:flex, width:fit-content, padding/margin top duplicado */
+}
+
+.listaRotina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0; /* apenas padding vertical */
+  box-sizing: border-box;
+  border-right: 1px solid #ccc;
+  list-style: none;
+}
+
+.listaRotina:last-child {
+  border-right: none;
+}
+
+.tituloRotina h1 {
+  font-size: 5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.btn {
+  all: unset;
+  border: none;
+  font-size: 1.3em;
+  padding: 4px 5px;
+  background-color: rgba(1, 141, 254, 255);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+}
+
+.ultimoDia {
+  border-right: none !important;
+}
+
+.diasSemana {
+  display: grid;
+  grid-template-columns: repeat(7, var(--col-width));
+  justify-content: center;
+  list-style: none;
+  /* 1) espaçamento lateral de 50px, ajuste como quiser */
+  margin: 32px 50px 10px;
+  padding: 0;
+}
+
+.diasSemana li {
+  text-align: center;
+  font-weight: bold;
+  /* 2) tamanho maior: de 1.5em para 2em (ou o que preferir) */
+  font-size: 2em !important;
+  color: rgba(1, 141, 254, 255);
+}

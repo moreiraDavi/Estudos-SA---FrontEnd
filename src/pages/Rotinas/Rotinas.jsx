@@ -78,18 +78,21 @@ export default function Rotinas() {
                   zIndex: 2,
                 }}
               >
-                <h2>{pref.concurso.name}</h2>
-                <p>
+                <h2 className={styles.rotinaTitulo}>{pref.concurso.name}</h2>
+                <p className={styles.rotinaInfo}>
                   <strong>Dias de estudo:</strong> {pref.diasEstudo}
                 </p>
-                <p>
+                <p className={styles.rotinaInfo}>
                   <strong>Turno:</strong> {pref.turno}
                 </p>
-                <p>
+                <p className={styles.rotinaInfo}>
                   <strong>Duração:</strong> {pref.duracao}{" "}
                   {pref.duracao === "1" ? "semana" : "semanas"}
                 </p>
-                <button onClick={() => navigate(`/rotina/${pref.concursoId}`)}>
+                <button
+                  className={styles.verRotinaBtn}
+                  onClick={() => navigate(`/rotina/${pref.concursoId}`)}
+                >
                   Ver Rotina
                 </button>
               </motion.li>
