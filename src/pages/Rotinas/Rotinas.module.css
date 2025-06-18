@@ -243,4 +243,10 @@
 
 .rotinas__li p{
   font-size: 1.5em;
+  margin-bottom: 0;
+}
+
+.rotinas__li {
+  max-width: 200px;
+  max-height: 450px;
 }

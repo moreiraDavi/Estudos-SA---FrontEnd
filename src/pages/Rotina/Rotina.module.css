@@ -1,5 +1,59 @@
-:root {
-  --col-width: 260px; /* 120px de conteúdo + 2×70px de padding, ajuste se quiser */
+.rotinaContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.diaHeader {
+  background: #018dfe;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.conteudoGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.diaConteudo {
+  background: #f8f9fa;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ddd;
+}
+
+.ultimoDia {
+  border-right: none !important;
+}
+
+.blocoHorario {
+  background: #e9ecef;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.blocoConteudo {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .titulo {
@@ -9,7 +63,9 @@
   transform: scale(1.2); /* aumenta a escala em 20% */
   transform-origin: left center;
   max-height: 200px;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
+  justify-content: flex-start;
+  gap: 350px;
 }
 
 .listaDia {
@@ -88,4 +144,35 @@
   /* 2) tamanho maior: de 1.5em para 2em (ou o que preferir) */
   font-size: 2em !important;
   color: rgba(1, 141, 254, 255);
+}
+
+.concursotext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;   /* Alinha à esquerda */
+  gap: 5px;
+  margin-top: 50px;
+  text-align: right;     /* Garante alinhamento do texto */
+  background-color: #e0e0e0;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.concursoAzul {
+  margin-top: 0;
+  color: #018dfe;
+  font-weight: bold;
+}
+
+.concursoName {
+  font-weight: normal;
+  font-size: 1.2rem;
+}
+
+.concursotext label,
+.concursotext select {
+  font-size: 1.2rem; /* ou o mesmo valor usado em .concursoName */
 }

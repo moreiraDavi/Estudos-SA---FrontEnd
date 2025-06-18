@@ -9,7 +9,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4em 2em;
+  padding: 2em 2em 4em 2em;
   font-family: "Sansation", sans-serif;
   text-align: center;
   margin-top: 0;
@@ -42,7 +42,8 @@ body {
   padding-top: 0;
   align-items: flex-start;
   justify-content: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  margin-top: -40px;
 }
 
 .titulo h1 {
@@ -68,6 +69,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   z-index: 1;
+  margin-top: -30px;
 }
 
 .primary {

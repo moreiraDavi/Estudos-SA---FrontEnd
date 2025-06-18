@@ -27,7 +27,6 @@ const Preferencias = () => {
   const [options, setOptions] = useState([]);
   const [selectedConcurso, setSelectedConcurso] = useState("");
   const [selectedDias, setSelectedDias] = useState([]);
-  const [selectedTurno, setSelectedTurno] = useState("");
   const [selectedDuracao, setSelectedDuracao] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -60,7 +59,6 @@ const Preferencias = () => {
     const preferences = {
       concursoId: selectedConcurso,
       diasEstudo: selectedDias.length,
-      turno: selectedTurno,
       duracao: selectedDuracao,
     };
 
@@ -135,23 +133,6 @@ const Preferencias = () => {
               ))}
             </div>
           </div>
-
-          <div>
-            <label>Selecione o turno: </label>
-            <select
-              value={selectedTurno}
-              onChange={(e) => setSelectedTurno(e.target.value)}
-              disabled={loading}
-            >
-              <option value="">Selecione um turno</option>
-              {turnos.map((t) => (
-                <option key={t.id} value={t.id}>
-                  {t.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <div>
             <label>Duração da rotina: </label>
             <select

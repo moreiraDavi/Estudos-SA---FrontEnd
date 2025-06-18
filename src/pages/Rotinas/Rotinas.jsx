@@ -83,9 +83,6 @@ export default function Rotinas() {
                   <strong>Dias de estudo:</strong> {pref.diasEstudo}
                 </p>
                 <p className={styles.rotinaInfo}>
-                  <strong>Turno:</strong> {pref.turno}
-                </p>
-                <p className={styles.rotinaInfo}>
                   <strong>Duração:</strong> {pref.duracao}{" "}
                   {pref.duracao === "1" ? "semana" : "semanas"}
                 </p>
