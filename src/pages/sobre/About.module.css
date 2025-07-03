@@ -84,8 +84,17 @@
 }
 
 .botao {
-  background-color: white;
-  color: #2997e5;
+  background: linear-gradient(
+    90deg,
+    #2563eb 0%,
+    #1d4ed8 60%,
+    #00c6fb 90%,
+    #00c6fb 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
   padding: 20px 20px;
   border-radius: 9999px;
   font-weight: bold;
@@ -99,5 +108,4 @@
 .botao:hover {
   transform: scale(1.02);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  background-color: #f0f8ff; /* opcional: leve destaque no fundo */
 }

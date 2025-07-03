@@ -1,145 +1,79 @@
+.wrapper {
+  background: #f7fcff;
+  padding: 3rem 1rem;
+}
+
 .container {
-  min-height: 100vh;
-  width: 90%;
   max-width: 1200px;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #eaeaea;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  padding: 40px 30px;
-  margin: 2rem auto;
-  font-family: 'Poppins', sans-serif;
+  margin: 0 auto;
   text-align: center;
 }
 
 .titulo {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #2f80ed;
-  margin-bottom: 2rem;
-}
-
-.botoesEstados {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-}
-
-.botaoEstado {
-  padding: 0.7rem 1.5rem;
-  background-color: #f2f4f8;
-  border: 1px solid #d0d7de;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  transition: all 0.3s ease;
-}
-
-.botaoEstado:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(69, 142, 238, 0.4);
-  background-color: #1e60d6;
-  color: #fff;
-  border-color: #1a4db8;
-}
-
-.selecionado {
-  background-color: #2f80ed;
-  color: white;
-  border-color: #2c6fc1;
-  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.2);
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #002244;
+  margin-bottom: 1rem;
 }
 
 .subtitulo {
-  font-size: 1.8rem;
-  font-weight: 500;
-  color: #34495e;
-  margin-bottom: 1.5rem;
-  text-align: left;
-  margin-left: 3rem;
+  font-size: 1.3rem;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
-.listaConcursos {
+.filtros {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.560rem;
-  justify-content: flex-start;
-  padding: 0;
-  list-style: none;
-  margin: 0 auto;
-  max-width: 1100px; /* 3 x 300px + 2 x 2rem */
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
 }
 
-.listaConcursos li {
-  flex: 1 1 0;
-  min-width: 300px;
-  max-width: 300px;
-  background-color: #f9fbfd;
-  padding: 1.5rem;
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  border: 1px solid #e0e0e0;
-  text-align: left;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  color: #555;
-  cursor: default;
-}
-@media (max-width: 900px) {
-  .listaConcursos li {
-    flex: 0 0 calc(50% - 2rem);
-  }
-}
-
-@media (max-width: 600px) {
-  .listaConcursos li {
-    flex: 0 0 100%;
-    min-width: unset;
-    max-width: unset;
-  }
-}
-
-
-
-.listaConcursos li:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 24px rgba(69, 142, 238, 0.18);
-  background-color: #458eee;
+.estadoBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #ccc;
+  background: white;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+}
+
+.estadoBtn:hover {
+  background: #2997e5;
   color: white;
 }
 
-
-.listaConcursos li:hover strong,
-.listaConcursos li:hover p {
-  color: white !important;
+.selecionado {
+  background: #2997e5;
+  color: white;
+  border-color: #2997e5;
 }
 
-.listaConcursos strong {
-  display: block;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.nome {
   font-size: 1.1rem;
-  color: #2f80ed;
+  color: #2997e5;
   margin-bottom: 0.5rem;
-}
-
-.listaConcursos p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
-  color: #555;
-}
-
-.subtitulo1 {
-  font-size: 1.2em;
-  margin-bottom: 50px;
-  font-weight: 200;
-}
-
-.titulo1 {
-  font-size: 2.5rem;
   font-weight: 600;
-  color: #033b85;
-  margin-bottom: 2rem;
 }

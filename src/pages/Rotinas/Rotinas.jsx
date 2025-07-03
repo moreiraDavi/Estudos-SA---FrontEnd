@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -34,41 +35,41 @@ export default function Rotinas() {
   }, []);
 
   return (
-    <div>
-      <div className={styles.titulo}>
-        <div className={styles.titulo__text}>
-          <h1>Minhas Rotinas</h1>
-          <span>
-            Gerencie e acompanhe suas rotinas de preparação para concursos
-          </span>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <div className={styles.topo}>
+          <div>
+            <h1 className={styles.titulo}>Minhas Rotinas</h1>
+            <p className={styles.subtitulo}>
+              Gerencie e acompanhe suas rotinas de preparação para concursos
+            </p>
+          </div>
+          <div className={styles.botaoWrapper}>
+            <button
+              className={styles.botao}
+              onClick={() => navigate("/rotinas/create")}
+              disabled={loading}
+            >
+              Criar Rotina
+            </button>
+            <small className={styles.limiteInfo}>Máx 6 por usuário</small>
+          </div>
         </div>
-        <div className={styles.titulo__btn}>
-          <button
-            className={styles.btn}
-            onClick={() => navigate("/rotinas/create")}
-            disabled={loading}
-          >
-            Criar Rotina
-          </button>
-          <p>Máx 6 por usuário</p>
-        </div>
-      </div>
 
-      <div className={styles.rotinas}>
-        {loading ? (
-          <p>Carregando…</p>
-        ) : preferencias === null ? (
-          <p className={styles.error}>
-            Não foi possível carregar suas preferências
-          </p>
-        ) : preferencias.length === 0 ? (
-          <p>Você ainda não tem rotinas cadastradas.</p>
-        ) : (
-          <ul>
-            {preferencias.map((pref, idx) => (
-              <motion.li
+        <div className={styles.grid}>
+          {loading ? (
+            <p>Carregando…</p>
+          ) : preferencias === null ? (
+            <p className={styles.error}>
+              Não foi possível carregar suas preferências
+            </p>
+          ) : preferencias.length === 0 ? (
+            <p>Você ainda não tem rotinas cadastradas.</p>
+          ) : (
+            preferencias.map((pref, idx) => (
+              <motion.div
                 key={pref.id}
-                className={styles.rotinas__li}
+                className={styles.card}
                 initial={{ opacity: 0, x: -40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.1, duration: 0.3 }}
@@ -78,24 +79,19 @@ export default function Rotinas() {
                   zIndex: 2,
                 }}
               >
-                <h2 className={styles.rotinaTitulo}>{pref.concurso.name}</h2>
-                <p className={styles.rotinaInfo}>
-                  <strong>Dias de estudo:</strong> {pref.diasEstudo}
-                </p>
-                <p className={styles.rotinaInfo}>
-                  <strong>Duração:</strong> {pref.duracao}{" "}
-                  {pref.duracao === "1" ? "semana" : "semanas"}
-                </p>
+                <h3 className={styles.nome}>{pref.concurso.name}</h3>
+                <p><strong>Dias de estudo:</strong> {pref.diasEstudo}</p>
+                <p><strong>Duração:</strong> {pref.duracao} {pref.duracao === "1" ? "semana" : "semanas"}</p>
                 <button
-                  className={styles.verRotinaBtn}
+                  className={styles.verBotao}
                   onClick={() => navigate(`/rotina/${pref.concursoId}`)}
                 >
                   Ver Rotina
                 </button>
-              </motion.li>
-            ))}
-          </ul>
-        )}
+              </motion.div>
+            ))
+          )}
+        </div>
       </div>
     </div>
   );

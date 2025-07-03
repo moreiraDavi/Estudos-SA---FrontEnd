@@ -33,37 +33,42 @@ function FiltroConcursos() {
   }, [selecionados]);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.titulo1}>Lista de Concursos Ativos</h1>
-      <p className={styles.subtitulo1}>Utilize nosso filtro de estados para visualizar concursos ativos no seu estado.</p>
-      <div className={styles.botoesEstados}>
-        {estados.map((uf) => (
-          <button
-            key={uf}
-            onClick={() => alternarEstado(uf)}
-            className={`${styles.botaoEstado} ${
-              selecionados.includes(uf) ? styles.selecionado : ""
-            }`}
-          >
-            {uf}
-          </button>
-        ))}
-      </div>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <h1 className={styles.titulo}>Lista de Concursos Ativos</h1>
+        <p className={styles.subtitulo}>
+          Utilize nosso filtro de estados para visualizar concursos ativos no seu estado.
+        </p>
 
-      <h3 className={styles.subtitulo}>Concursos Abertos:</h3>
-      <ul className={styles.listaConcursos}>
-        {concursos.map((c) => (
-          <li key={c.id}>
-            <strong> {c.name}</strong>
-            <p>Banca: {c.banca}</p>
-            <p>Estado: {c.estado}</p>
-            <p>Data final das inscrições: {c.dataInscricaoFim}</p>
-            <p>Data da Prova: {c.dataProva}</p>
-            <p>Salario: {c.salario}</p>
-            <p>Número de vagas: {c.numVagas}</p>
-          </li>
-        ))}
-      </ul>
+        <div className={styles.filtros}>
+          {estados.map((uf) => (
+            <button
+              key={uf}
+              onClick={() => alternarEstado(uf)}
+              className={`${styles.estadoBtn} ${
+                selecionados.includes(uf) ? styles.selecionado : ""
+              }`}
+            >
+              {uf}
+            </button>
+          ))}
+        </div>
+
+        <h3 className={styles.subtitulo}>Concursos Abertos:</h3>
+        <div className={styles.grid}>
+          {concursos.map((c) => (
+            <div key={c.id} className={styles.card}>
+              <h3 className={styles.nome}>{c.name}</h3>
+              <p><strong>Banca:</strong> {c.banca}</p>
+              <p><strong>Estado:</strong> {c.estado}</p>
+              <p><strong>Data final das inscrições:</strong> {c.dataInscricaoFim}</p>
+              <p><strong>Data da Prova:</strong> {c.dataProva}</p>
+              <p><strong>Salário:</strong> {c.salario}</p>
+              <p><strong>Número de vagas:</strong> {c.numVagas}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
