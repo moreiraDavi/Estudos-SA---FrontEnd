@@ -1,8 +1,10 @@
 # Estudos SA — Frontend 🌐📚
 
-![React](https://img.shields.io/badge/React-18.2-blue)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
-![License](https://img.shields.io/badge/license-MIT-green)
+![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react&logoColor=white&style=for-the-badge)
+![Vite](https://img.shields.io/badge/Vite-4.0-646CFF?logo=vite&logoColor=white&style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
+
 
 Este é o frontend da aplicação **Estudos SA**, um projeto acadêmico que gera rotinas de estudo personalizadas para concursos públicos, consumindo uma API com inteligência artificial (Hugging Face). Desenvolvido com **React + Vite**.
 
